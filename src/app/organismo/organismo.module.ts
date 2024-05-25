@@ -1,11 +1,12 @@
 import { OrganismoCreateComponent } from './organismo-create/component/organismo-create.component';
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
    imports: [
       CommonModule,
-      FormsModule
+      FormsModule,
+      ReactiveFormsModule
    ],
    declarations: [
       OrganismoCreateComponent
