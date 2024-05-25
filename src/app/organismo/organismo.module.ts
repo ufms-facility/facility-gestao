@@ -2,6 +2,7 @@ import { OrganismoCreateComponent } from './organismo-create/component/organismo
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { OrganismoListComponent } from './organismo-list/organismo-list.component';
 @NgModule({
    imports: [
       CommonModule,
@@ -9,7 +10,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
       ReactiveFormsModule
    ],
    declarations: [
-      OrganismoCreateComponent
+      OrganismoCreateComponent,
+      OrganismoListComponent
    ],
    exports: [
       OrganismoCreateComponent
