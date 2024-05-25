@@ -2,4 +2,26 @@
     <div class="panel-heading">
         <h1 style="text-align: center">Organismos</h1><br>
     </div>
+    <div class="panel-body">
+        <table class="table table-hover table-sm" datatable>
+            <thead class="thead-light">
+                <tr>
+                    <th>Organismo</th>
+                    <th>Origem</th>
+                    <th>Família</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let organismo of organismos ">
+                    <td>{{organismo.especie}}</td>
+                    <td>{{organismo.origem}}</td>
+                    <td>{{organismo.familia}}</td>
+                    <td><button class='btn btn-primary'><i class="fa fa-trash"> Excluir</i></button>&nbsp;
+                        <button class='btn btn-info'><i class="fa fa-edit"></i> Editar</button>
+                    </td>
+                </tr>
+            </tbody><br>
+        </table>
+    </div>
 </div>
