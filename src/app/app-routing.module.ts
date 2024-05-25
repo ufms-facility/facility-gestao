@@ -13,7 +13,7 @@ const routes: Routes = [{
   component: HomeComponent
 },
 {
-  path: 'novo-curso',
+  path: 'novo-organismo',
   component: OrganismoCreateComponent
 }
 ];
