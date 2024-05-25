@@ -8,7 +8,7 @@ import { Organismo } from "./models/organismo.model";
 })
 
 export class OrganismoService {
-    private API = 'http://localhost:8080/api/v1/organismos';
+    private API = 'http://matheus@200.130.152.123:8080/api/v1/organismos';
     
     constructor(private httpClient: HttpClient) {
     
