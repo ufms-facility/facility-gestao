@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './componentes/home/home.component';
 import { OrganismoCreateComponent } from './organismo/organismo-create/component/organismo-create.component';
+import { OrganismoListComponent } from './organismo/organismo-list/organismo-list.component';
 
 const routes: Routes = [{
   path: '',
@@ -15,7 +16,11 @@ const routes: Routes = [{
 {
   path: 'novo-organismo',
   component: OrganismoCreateComponent
-}
+},
+{
+  path: 'lista-organismos',
+  component: OrganismoListComponent
+},
 ];
 
 @NgModule({
