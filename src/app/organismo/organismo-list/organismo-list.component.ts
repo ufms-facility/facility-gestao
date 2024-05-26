@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { OrganismoService } from '../organismo.service';
 import { Organismo } from '../models/organismo.model';
 
@@ -8,7 +8,13 @@ import { Organismo } from '../models/organismo.model';
   styleUrl: './organismo-list.component.css'
 })
 
-export class OrganismoListComponent {
+export class OrganismoListComponent implements OnInit {
   constructor(private organismoService: OrganismoService) { }
   organismos: Organismo[] = [];
+
+  ngOnInit() {
+    this.organismoService.listarOrganismos().subscribe(dados =>
+      this.organismos = dados
+    )
+  }
 }

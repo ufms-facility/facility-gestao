@@ -18,7 +18,7 @@ export class OrganismoService {
         return this.httpClient.post<Organismo>(this.API, organismo);
     }
 
-    listarCursos(): Observable<any> {
+    listarOrganismos(): Observable<any> {
         return this.httpClient.get(this.API);
     }
 }
