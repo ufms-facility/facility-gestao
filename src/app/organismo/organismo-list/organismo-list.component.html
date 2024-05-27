@@ -30,9 +30,10 @@
                     <td>{{organismo.origem}}</td>
                     <td>{{organismo.familia}}</td>
                     <td><button class='btn btn-primary' (click)="delete(organismo.id)">
-                        <i class="fa fa-trash"> Excluir</i>
+                            <i class="fa fa-trash"> Excluir</i>
                         </button>&nbsp;
-                        <button class='btn btn-info'><i class="fa fa-edit"></i> Editar</button>
+                        <button class='btn btn-info' (click)="updateOrganismo(organismo.id)">
+                            <i class="fa fa-edit"></i>Editar</button>
                     </td>
                 </tr>
             </tbody><br>

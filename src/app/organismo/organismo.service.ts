@@ -28,4 +28,8 @@ export class OrganismoService {
     update(id?: number, organismo?: Organismo): Observable<any> {
         return this.httpClient.put(`${this.API}/${id}`, organismo);
     }
+    buscarPorId(id: number): Observable<any> {
+        return this.httpClient.get(`${this.API}/${id}`);
+    }
+    
 }
