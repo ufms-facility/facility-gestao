@@ -4,6 +4,7 @@ import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OrganismoListComponent } from './organismo-list/organismo-list.component';
 import { OrganismoEditComponent } from './organismo-edit/organismo-edit.component';
+import { OrganismoDetailComponent } from './organismo-detail/organismo-detail.component';
 @NgModule({
    imports: [
       CommonModule,
@@ -13,7 +14,8 @@ import { OrganismoEditComponent } from './organismo-edit/organismo-edit.componen
    declarations: [
       OrganismoCreateComponent,
       OrganismoListComponent,
-      OrganismoEditComponent
+      OrganismoEditComponent,
+      OrganismoDetailComponent
    ],
    exports: [
       OrganismoCreateComponent
