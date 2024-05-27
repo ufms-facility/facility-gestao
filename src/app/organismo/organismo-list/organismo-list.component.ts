@@ -34,4 +34,7 @@ export class OrganismoListComponent implements OnInit {
   updateOrganismo(id?: number){
     this.router.navigate(['edit-organismo',id]);
   }
+  detalheOrganismo(id?: number){
+    this.router.navigate(['detail-organismo',id]);
+  }
 }

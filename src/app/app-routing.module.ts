@@ -4,6 +4,7 @@ import { HomeComponent } from './componentes/home/home.component';
 import { OrganismoCreateComponent } from './organismo/organismo-create/component/organismo-create.component';
 import { OrganismoListComponent } from './organismo/organismo-list/organismo-list.component';
 import { OrganismoEditComponent } from './organismo/organismo-edit/organismo-edit.component';
+import { OrganismoDetailComponent } from './organismo/organismo-detail/organismo-detail.component';
 
 const routes: Routes = [{
   path: '',
@@ -25,6 +26,10 @@ const routes: Routes = [{
 {
   path: 'edit-organismo/:id',
   component: OrganismoEditComponent
+},
+{
+  path: 'detail-organismo/:id',
+  component: OrganismoDetailComponent
 }
 ];
 

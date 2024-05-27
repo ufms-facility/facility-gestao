@@ -1,10 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Organismo } from '../models/organismo.model';
+import { OrganismoService } from '../organismo.service';
 
 @Component({
-  selector: 'app-organismo-detail',
+  selector: 'gc-organismo-detail',
   templateUrl: './organismo-detail.component.html',
-  styleUrl: './organismo-detail.component.css'
+  styleUrls: ['./organismo-detail.component.css']
 })
-export class OrganismoDetailComponent {
 
+export class OrganismoDetailComponent implements OnInit {
+  public id?: number;
+  organismo?: Organismo;
+  constructor(private organismoService: OrganismoService,
+    private route: ActivatedRoute) { }
+  ngOnInit(): void {
+    this.route.params.subscribe(params => this.id = params['id']);
+    this.organismoService.buscarPorId(this.id!).subscribe(dado => {
+      this.organismo = dado;
+    },
+      error => console.log(error)
+    );
+  }
 }
