@@ -1,13 +1,7 @@
-<div class="row justify-content-center mt-2">
-    <div class="col-lg-4 col-md-4 col-sm-4">
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title text-success">{{ organismo?.especie}}</h5>
-                <h6 class="card-subtitle mb-2 text-muted text-info">{{ organismo?.familia}}</h6>
-                <h6 class="card-subtitle mb-2 text-muted text-info">{{ organismo?.origem}}</h6>
-                <h6 class="card-subtitle mb-2 text-muted text-info">{{ organismo?.nomeCientifico}}</h6>
-                <a [routerLink]="['/lista-organismos']" class="card-link"><i class="fa fa-arrow-left"></i></a>
-            </div>
-        </div>
-    </div>
+<div class="card-body">
+    <h5>{{ organismo?.especie}}</h5>
+    <h6>{{ organismo?.familia}}</h6>
+    <h6>{{ organismo?.origem}}</h6>
+    <h6>{{ organismo?.nomeCientifico}}</h6>
+    <button class="m-10" routerLink="..">voltar</button>
 </div>

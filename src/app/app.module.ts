@@ -6,15 +6,17 @@ import { AppComponent } from './app.component';
 import { OrganismoModule } from './organismo/organismo.module';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './componentes/header/header.component';
-import { FooterComponent } from './componentes/footer/footer.component';
 import { HomeComponent } from './componentes/home/home.component';
+import { AdminComponent } from './componentes/admin/admin.component';
+import { PesquisarComponent } from './componentes/pesquisar/pesquisar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent,
-    HomeComponent
+    HomeComponent,
+    AdminComponent,
+    PesquisarComponent
   ],
   imports: [
     BrowserModule,

@@ -1,10 +1,18 @@
-<header class="flex">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="nav-item nav-link active" href="#">
-            <span class="sr-only">(current)</span>
-            <i class="fa fa-home fa-1x"></i>
-        </a>
-        <a class="nav-item nav-link" href="novo-organismo">Novo organismo</a>
-        <a class="nav-item nav-link" href="lista-organismos">Listar organismos</a>
+<header>
+    <div class="px-6 h-20 flex items-center justify-between">
+        <img class="h-16" src="assets/images/lppfb-logo.jpg" alt="LABORATÓRIO DE PURIFICAÇÃO DE PROTEÍNAS E SUAS FUNÇÕES BIOLÓGICAS">
+        <div *ngIf="!this.admin" class="flex gap-4">
+            <button class="rounded-full bg-cyan-400 px-5 py-1 text-white font-bold text-lg" routerLink="entrar">Entrar</button>
+            <button class="rounded-full bg-neutral-400 px-5 py-1 text-white font-bold" routerLink="cadastrar">Cadastrar</button>
+        </div>
+        <div *ngIf="this.admin" class="font-bold">Acesso Administrador</div>
+    </div>
+    <nav class="bg-neutral-200 py-1">
+        <ul class="flex gap-6 flex-wrap items-center justify-center">
+            <li *ngFor="let route of routes">
+                <a class="hover:underline underline-offset-4 font-bold" [routerLink]="[route.path]" [routerLinkActive]="['underline']"
+                    [routerLinkActiveOptions]="{ exact: true }">{{ route.name }}</a>
+            </li>
+        </ul>
     </nav>
 </header>

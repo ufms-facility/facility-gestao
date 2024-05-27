@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
-import { OrganismoService } from "../../organismo.service";
-import { Organismo } from "../../models/organismo.model";
+import { OrganismoService } from "../organismo.service";
+import { Organismo } from "../models/organismo.model";
 import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 
 @Component({
@@ -11,9 +11,11 @@ import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms"
 export class OrganismoCreateComponent {
     organismoForm!: FormGroup;
     submitted = false;
+    
     constructor(
         private organismoService: OrganismoService,
         private formBuilder: FormBuilder) { }
+
     ngOnInit(): void {
         this.organismoForm = this.formBuilder.group({
             especie: new FormControl('', [Validators.required]),
@@ -22,6 +24,7 @@ export class OrganismoCreateComponent {
             nomeCientifico: new FormControl('', [Validators.required]),
         });
     }
+
     save() {
         if (this.organismoForm.valid) {
             const organismo = this.organismoForm.getRawValue() as Organismo;
@@ -31,6 +34,7 @@ export class OrganismoCreateComponent {
             );
         }
     }
+
     addOrganismoForm() {
         this.submitted = false;
         this.organismoForm.reset();

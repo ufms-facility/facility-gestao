@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OrganismoService } from '../organismo.service';
 import { Organismo } from '../models/organismo.model';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-organismo-list',
@@ -10,31 +10,34 @@ import { Router } from '@angular/router';
 })
 
 export class OrganismoListComponent implements OnInit {
-  constructor(private organismoService: OrganismoService, private router: Router) { }
+  constructor(private organismoService: OrganismoService, private router: Router, private route: ActivatedRoute) { }
   organismos: Organismo[] = [];
   deleteMessage = false;
-  
-  
+
   ngOnInit() {
     this.organismoService.listarOrganismos().subscribe(dados =>
       this.organismos = dados
     )
   }
+
   delete(id?: number) {
-    this.organismoService.delete(id!).subscribe(dado => {
-      console.log(dado);
-      this.deleteMessage = true;
-      this.organismoService.listarOrganismos().subscribe(dados => {
-        this.organismos = dados;
-      });
-    },
-      error => console.log(error)
-    );
+    this.organismoService.delete(id!).subscribe({
+      next: dado => {
+        console.log(dado);
+        this.deleteMessage = true;
+        this.organismoService.listarOrganismos().subscribe(dados => {
+          this.organismos = dados;
+        });
+      },
+      error: error => console.log(error)
+    });
   }
-  updateOrganismo(id?: number){
-    this.router.navigate(['edit-organismo',id]);
+
+  updateOrganismo(id?: number) {
+    this.router.navigate(['edit', id], { relativeTo: this.route });
   }
-  detalheOrganismo(id?: number){
-    this.router.navigate(['detail-organismo',id]);
+
+  detalheOrganismo(id?: number) {
+    this.router.navigate([id], { relativeTo: this.route });
   }
 }

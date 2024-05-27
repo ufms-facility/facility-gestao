@@ -1,36 +1,115 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './componentes/home/home.component';
-import { OrganismoCreateComponent } from './organismo/organismo-create/component/organismo-create.component';
+import { OrganismoCreateComponent } from './organismo/organismo-create/organismo-create.component';
 import { OrganismoListComponent } from './organismo/organismo-list/organismo-list.component';
 import { OrganismoEditComponent } from './organismo/organismo-edit/organismo-edit.component';
 import { OrganismoDetailComponent } from './organismo/organismo-detail/organismo-detail.component';
+import { AdminComponent } from './componentes/admin/admin.component';
+import { PesquisarComponent } from './componentes/pesquisar/pesquisar.component';
 
-const routes: Routes = [{
+const routes: Routes = [
+{
   path: '',
   pathMatch: 'full',
-  redirectTo: 'home',
+  component: HomeComponent,
+  data: {
+    name: 'Início'
+  },
 },
 {
-  path: 'home',
+  path: 'entrar',
   component: HomeComponent
 },
 {
-  path: 'novo-organismo',
-  component: OrganismoCreateComponent
+  path: 'cadastrar',
+  component: HomeComponent
 },
 {
-  path: 'lista-organismos',
-  component: OrganismoListComponent
+  path: 'pesquisar',
+  component: PesquisarComponent,
+  data: {
+    name: 'Pesquisar'
+  }
 },
 {
-  path: 'edit-organismo/:id',
-  component: OrganismoEditComponent
+  path: 'transcriptomica',
+  component: HomeComponent,
+  data: {
+    name: 'Transcriptômica'
+  }
 },
 {
-  path: 'detail-organismo/:id',
-  component: OrganismoDetailComponent
-}
+  path: 'proteomica',
+  component: HomeComponent,
+  data: {
+    name: 'Proteômica'
+  }
+},
+{
+  path: 'genomica',
+  component: HomeComponent,
+  data: {
+    name: 'Genômica'
+  }
+},
+{
+  path: 'predicao-de-peptideos',
+  component: HomeComponent,
+  data: {
+    name: 'Predição de Peptídeos'
+  }
+},
+{
+  path: 'missao',
+  component: HomeComponent,
+  data: {
+    name: 'Missão'
+  }
+},
+{
+  path: 'quem-somos',
+  component: HomeComponent,
+  data: {
+    name: 'Quem Somos'
+  }
+},
+{
+  path: 'faq',
+  component: HomeComponent,
+  data: {
+    name: 'FAQ'
+  }
+},
+{
+  path: 'fotos',
+  component: HomeComponent,
+  data: {
+    name: 'Fotos'
+  }
+},
+{
+  path: 'admin',
+  component: AdminComponent,
+  children: [
+    {
+      path: 'organismo',
+      component: OrganismoListComponent
+    },
+    {
+      path: 'organismo/novo',
+      component: OrganismoCreateComponent
+    },
+    {
+      path: 'organismo/edit/:id',
+      component: OrganismoEditComponent
+    },
+    {
+      path: 'organismo/:id',
+      component: OrganismoDetailComponent
+    }
+  ]
+},
 ];
 
 @NgModule({

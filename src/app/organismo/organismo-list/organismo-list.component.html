@@ -1,8 +1,6 @@
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h1 style="text-align: center">Organismos</h1><br>
         <div class="row" [hidden]="!deleteMessage">
-            <div class="col-sm-4"></div>
             <div class="col-sm-4">
                 <div class="alert alert-success alert-dismissible">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -14,32 +12,44 @@
             <div class="col-sm-4"></div>
         </div>
     </div>
-    <div class="panel-body">
-        <table class="table table-hover table-sm" datatable>
-            <thead class="thead-light">
+
+    <div class="relative overflow-x-auto">
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
-                    <th>Organismo</th>
-                    <th>Origem</th>
-                    <th>Família</th>
-                    <th>Ações</th>
+                    <th scope="col" class="px-6 py-3">
+                        Organismo
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Origem
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Família
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Ações
+                    </th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let organismo of organismos ">
-                    <td>{{organismo.especie}}</td>
-                    <td>{{organismo.origem}}</td>
-                    <td>{{organismo.familia}}</td>
-                    <td><button class='btn btn-primary' (click)="delete(organismo.id)">
-                            <i class="fa fa-trash"> Excluir</i>
-                        </button>&nbsp;
-                        <button class='btn btn-info' (click)="updateOrganismo(organismo.id)">
-                            <i class="fa fa-edit"></i>Editar</button>
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700" *ngFor="let organismo of organismos ">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{organismo.especie}}</th>
+                    <td class="px-6 py-4">{{organismo.origem}}</td>
+                    <td class="px-6 py-4">{{organismo.familia}}</td>
+                    <td class="px-6 py-4 flex gap-2">
+                        <button (click)="delete(organismo.id)">
+                            Excluir
+                        </button>
+                        <button (click)="updateOrganismo(organismo.id)">
+                            Editar
+                        </button>
+                        <button (click)="detalheOrganismo(organismo.id)">
+                            Visualizar
+                        </button>
                     </td>
-                    &nbsp;
-                    <button class='btn btn-secondary' (click)="detalheOrganismo(organismo.id)"><i class="fa fa-search"></i>
-                        Visualizar</button>
+
                 </tr>
-            </tbody><br>
+            </tbody>
         </table>
     </div>
 </div>

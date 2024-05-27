@@ -15,18 +15,22 @@ export class OrganismoEditComponent {
   organismo?: Organismo;
   organismoForm!: FormGroup;
   updated = false;
+
   constructor(private route: ActivatedRoute,
     private organismoService: OrganismoService,
     private formBuilder: FormBuilder) { }
+
   ngOnInit(): void {
     this.route.params.subscribe(params => this.id = params['id']);
-    this.organismoService.buscarPorId(this.id!).subscribe(dado => {
-      this.organismo = dado;
-    },
-      error => console.log(error)
-    );
+    this.organismoService.buscarPorId(this.id!).subscribe({
+      next: dado => {
+        this.organismo = dado;
+      },
+      error: error => console.log(error)
+    });
     this.createForm();
   }
+
   createForm() {
     this.organismoForm = this.formBuilder.group({
       id: new FormControl(this.id),
@@ -36,13 +40,13 @@ export class OrganismoEditComponent {
       nomeCientifico: new FormControl(this.organismo?.nomeCientifico),
     });
   }
+
   update() {
     if (this.organismoForm.valid) {
-      const curso = this.organismoForm.getRawValue() as Organismo;
-      this.organismoService.update(this.id, this.organismo).subscribe(
-        () => (this.updated = true),
-        (error) => console.log(error)
-      );
+      this.organismoService.update(this.id, this.organismo).subscribe({
+        next: () => (this.updated = true),
+        error: (error) => console.log(error)
+      });
     }
   }
 }
