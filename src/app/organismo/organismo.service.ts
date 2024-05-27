@@ -21,4 +21,11 @@ export class OrganismoService {
     listarOrganismos(): Observable<any> {
         return this.httpClient.get(this.API);
     }
+
+    delete(id: number): Observable<any> {
+        return this.httpClient.delete(`${this.API}/${id}`);
+    }
+    update(id?: number, organismo?: Organismo): Observable<any> {
+        return this.httpClient.put(`${this.API}/${id}`, organismo);
+    }
 }

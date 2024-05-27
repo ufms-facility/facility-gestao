@@ -11,10 +11,22 @@ import { Organismo } from '../models/organismo.model';
 export class OrganismoListComponent implements OnInit {
   constructor(private organismoService: OrganismoService) { }
   organismos: Organismo[] = [];
+  deleteMessage = false;
 
   ngOnInit() {
     this.organismoService.listarOrganismos().subscribe(dados =>
       this.organismos = dados
     )
+  }
+  delete(id?: number) {
+    this.organismoService.delete(id!).subscribe(dado => {
+      console.log(dado);
+      this.deleteMessage = true;
+      this.organismoService.listarOrganismos().subscribe(dados => {
+        this.organismos = dados;
+      });
+    },
+      error => console.log(error)
+    );
   }
 }

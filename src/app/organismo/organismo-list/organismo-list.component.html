@@ -1,6 +1,18 @@
 <div class="panel panel-default">
     <div class="panel-heading">
         <h1 style="text-align: center">Organismos</h1><br>
+        <div class="row" [hidden]="!deleteMessage">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>Organismo excluído</strong>
+                </div>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
     </div>
     <div class="panel-body">
         <table class="table table-hover table-sm" datatable>
@@ -17,7 +29,9 @@
                     <td>{{organismo.especie}}</td>
                     <td>{{organismo.origem}}</td>
                     <td>{{organismo.familia}}</td>
-                    <td><button class='btn btn-primary'><i class="fa fa-trash"> Excluir</i></button>&nbsp;
+                    <td><button class='btn btn-primary' (click)="delete(organismo.id)">
+                        <i class="fa fa-trash"> Excluir</i>
+                        </button>&nbsp;
                         <button class='btn btn-info'><i class="fa fa-edit"></i> Editar</button>
                     </td>
                 </tr>
