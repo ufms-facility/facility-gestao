@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OrganismoService } from '../organismo.service';
 import { Organismo } from '../models/organismo.model';
-
 import { Router } from '@angular/router';
 
 @Component({
