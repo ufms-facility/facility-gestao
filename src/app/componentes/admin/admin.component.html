@@ -1,11 +1,19 @@
-<div class="flex justify-center flex-grow h-full w-lvw bg-gradient-to-r from-[#649bac] to-[#0e3d55]">
-    <div class="bg-neutral-200 w-fit my-10 mx-36 px-6 rounded-3xl">
-        <div class="flex flex-col items-center justify-center m-4">
-            <h2 class="font-bold text-3xl">Área do administrador</h2>
-            <div class="flex items-center justify-center">
-                <button routerLink="./organismo" class="bg-cyan-600 py-2 px-6 m-6 rounded-full text-white hover:underline" [routerLinkActive]="['underline']">Organismos</button>
-            </div>
-            <router-outlet></router-outlet>
-        </div>
+<div
+  class="flex justify-center flex-grow h-full w-lvw bg-gradient-to-r from-[#649bac] to-[#0e3d55]"
+>
+  <div class="bg-neutral-200 w-full md:my-10 md:w-5/6 md:rounded-3xl p-4">
+    <div class="flex flex-col items-center justify-center m-4">
+      <h2 class="font-bold text-3xl">Área do administrador</h2>
+      <div class="flex items-center justify-center">
+        <button
+          routerLink="./organismo"
+          class="bg-cyan-600 py-2 px-6 m-6 rounded-full text-white hover:underline"
+          [routerLinkActive]="['underline']"
+        >
+          Organismos
+        </button>
+      </div>
+      <router-outlet></router-outlet>
     </div>
+  </div>
 </div>

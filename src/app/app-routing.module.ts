@@ -6,7 +6,8 @@ import { OrganismoListComponent } from './organismo/organismo-list/organismo-lis
 import { OrganismoEditComponent } from './organismo/organismo-edit/organismo-edit.component';
 import { OrganismoDetailComponent } from './organismo/organismo-detail/organismo-detail.component';
 import { AdminComponent } from './componentes/admin/admin.component';
-import { PesquisarComponent } from './componentes/pesquisar/pesquisar.component';
+import { PesquisaComponent } from './componentes/pesquisa/pesquisa.component';
+import { ResultadosComponent } from './componentes/pesquisa/resultados/resultados.component';
 
 const routes: Routes = [
 {
@@ -26,11 +27,19 @@ const routes: Routes = [
   component: HomeComponent
 },
 {
-  path: 'pesquisar',
-  component: PesquisarComponent,
+  path: 'pesquisa',
+  component: PesquisaComponent,
   data: {
     name: 'Pesquisar'
   }
+},
+{
+  path: 'pesquisa/resultado',
+  component: ResultadosComponent,
+},
+{
+  path: 'organismo/:id',
+  component: OrganismoDetailComponent
 },
 {
   path: 'transcriptomica',

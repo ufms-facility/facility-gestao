@@ -2,8 +2,8 @@
     <div class="px-6 h-20 flex items-center justify-between">
         <img class="h-16" src="assets/images/lppfb-logo.jpg" alt="LABORATÓRIO DE PURIFICAÇÃO DE PROTEÍNAS E SUAS FUNÇÕES BIOLÓGICAS">
         <div *ngIf="!this.admin" class="flex gap-4">
-            <button class="rounded-full bg-cyan-400 px-5 py-1 text-white font-bold text-lg" routerLink="entrar">Entrar</button>
-            <button class="rounded-full bg-neutral-400 px-5 py-1 text-white font-bold" routerLink="cadastrar">Cadastrar</button>
+            <button class="rounded-full bg-cyan-400 px-5 py-1 text-white font-bold text-lg" routerLink="admin">Entrar</button>
+            <button class="rounded-full bg-neutral-400 px-5 py-1 text-white font-bold" routerLink="admin">Cadastrar</button>
         </div>
         <div *ngIf="this.admin" class="font-bold">Acesso Administrador</div>
     </div>

@@ -38,6 +38,6 @@ export class OrganismoListComponent implements OnInit {
   }
 
   detalheOrganismo(id?: number) {
-    this.router.navigate([id], { relativeTo: this.route });
+    this.router.navigate(['/organismo', id]);
   }
 }

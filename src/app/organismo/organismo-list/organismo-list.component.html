@@ -1,57 +1,41 @@
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <div class="row" [hidden]="!deleteMessage">
-            <div class="col-sm-4">
-                <div class="alert alert-success alert-dismissible">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <strong>Organismo excluído</strong>
-                </div>
-            </div>
-            <div class="col-sm-4"></div>
-        </div>
-    </div>
-    <div>
-        <button class="bg-cyan-400 rounded-full py-1 px-3 m-2" routerLink="./novo" >Adicionar</button>
-    </div>
-    <div class="relative overflow-x-auto">
-        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                <tr>
-                    <th scope="col" class="px-6 py-3">
-                        Organismo
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Origem
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Família
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Ações
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700" *ngFor="let organismo of organismos ">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{organismo.especie}}</th>
-                    <td class="px-6 py-4">{{organismo.origem}}</td>
-                    <td class="px-6 py-4">{{organismo.familia}}</td>
-                    <td class="px-6 py-4 flex gap-2">
-                        <button (click)="delete(organismo.id)">
-                            Excluir
-                        </button>
-                        <button (click)="updateOrganismo(organismo.id)">
-                            Editar
-                        </button>
-                        <button (click)="detalheOrganismo(organismo.id)">
-                            Visualizar
-                        </button>
-                    </td>
-
-                </tr>
-            </tbody>
-        </table>
-    </div>
+<div>
+  <button class="bg-cyan-400 rounded-full py-1 px-3 m-2" routerLink="./novo">
+    Adicionar
+  </button>
+</div>
+<div class="relative overflow-x-auto w-full outline">
+  <table
+    class="w-full text-sm text-left rtl:text-right text-gray-800 dark:text-gray-400"
+  >
+    <thead
+      class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 outline"
+    >
+      <tr>
+        <th scope="col" class="px-6 py-3">Espécie</th>
+        <th scope="col" class="px-6 py-3">Origem</th>
+        <th scope="col" class="px-6 py-3">Família</th>
+        <th scope="col" class="px-6 py-3">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        class="even:bg-neutral-200 odd:bg-neutral-100 border-b dark:bg-gray-800 dark:border-gray-700"
+        *ngFor="let organismo of organismos"
+      >
+        <th
+          scope="row"
+          class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+        >
+          {{ organismo.especie }}
+        </th>
+        <td class="px-6 py-4">{{ organismo.origem }}</td>
+        <td class="px-6 py-4">{{ organismo.familia }}</td>
+        <td class="px-6 py-4 flex gap-2">
+          <button (click)="delete(organismo.id)">Excluir</button>
+          <button (click)="updateOrganismo(organismo.id)">Editar</button>
+          <button (click)="detalheOrganismo(organismo.id)">Visualizar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
