@@ -1,5 +1,5 @@
 import { Organismo } from "../../organismo/models/organismo.model";
-import { TipoPeptideo } from "./tipopeptideo.model";
+import { TipoPeptideo } from "./tipoPeptideo.model";
 
 export interface Peptideo {
     id?: number;
